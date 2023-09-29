@@ -29,4 +29,6 @@ public class AchievemeUser {
   @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
   @Enumerated(EnumType.STRING)
   private Set<Role> roles = new HashSet<>();
+  @Column(name = "email")
+  private String email;
 }
