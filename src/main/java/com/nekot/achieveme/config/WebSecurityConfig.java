@@ -42,9 +42,8 @@ public class WebSecurityConfig {
             requestMatchers("/", "/main").permitAll().
             anyRequest().authenticated()
         )
-        .formLogin(login -> login
-          .loginPage("/login").defaultSuccessUrl("/")
-          .permitAll());
+        .formLogin().successForwardUrl("/main");
+        
 
     return http.build();
   }
