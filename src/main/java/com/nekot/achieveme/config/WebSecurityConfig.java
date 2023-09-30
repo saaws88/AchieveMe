@@ -38,13 +38,25 @@ public class WebSecurityConfig {
   @Bean
   protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http.
-        authorizeHttpRequests((requests) -> requests.
-            requestMatchers("/", "/main").permitAll().
-            anyRequest().authenticated()
-        )
-        .formLogin().successForwardUrl("/main");
-        
-
+        csrf(csrf -> {
+          try {
+            csrf
+              .disable()
+              .authorizeHttpRequests()
+              .requestMatchers("/", "/main").permitAll()
+              .anyRequest().authenticated();
+          } catch (Exception e) {
+            e = new Exception("Авторизуйтесь для просмотра страницы");
+          }
+        })
+        .formLogin(login->login
+            .loginPage("/login")
+            .defaultSuccessUrl("/home")
+            .permitAll())
+        .logout(logout -> logout
+              .permitAll()
+              .logoutSuccessUrl("/"));
+          
     return http.build();
   }
 
