@@ -43,7 +43,7 @@ public class WebSecurityConfig {
             csrf
               .disable()
               .authorizeHttpRequests()
-              .requestMatchers("/", "/main").permitAll()
+              .requestMatchers("/", "/main", "api/v1/**").permitAll()
               .anyRequest().authenticated();
           } catch (Exception e) {
             e = new Exception("Авторизуйтесь для просмотра страницы");
