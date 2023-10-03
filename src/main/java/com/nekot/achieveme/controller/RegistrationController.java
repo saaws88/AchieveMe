@@ -1,4 +1,4 @@
-package com.nekot.achieveme.controller;
+/*package com.nekot.achieveme.controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,4 +14,4 @@ public class RegistrationController {
     model.addAttribute("user", userDto);
     return "registration";
   }
-}
+}*/

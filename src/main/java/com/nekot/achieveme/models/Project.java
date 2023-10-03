@@ -1,4 +1,4 @@
-package com.nekot.achieveme.models;
+/*package com.nekot.achieveme.models;
 
 import java.util.Date;
 import java.util.List;
@@ -45,3 +45,4 @@ public class Project {
   private Status status;
 
 }
+*/

@@ -1,4 +1,4 @@
-package com.nekot.achieveme.models;
+/*package com.nekot.achieveme.models;
 
 public class AchievemeUserDTO {
 
@@ -8,4 +8,4 @@ public class AchievemeUserDTO {
   private String confirmPassword;
 
   
-}
+}*/

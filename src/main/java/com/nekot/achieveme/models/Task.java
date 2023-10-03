@@ -1,4 +1,4 @@
-package com.nekot.achieveme.models;
+/*package com.nekot.achieveme.models;
 
 import java.util.Date;
 import java.util.List;
@@ -23,8 +23,6 @@ public class Task {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name="task-id")
   private Long id;
-  @Column(name="task-project")
-  private Project project;
   @Column(name="task-name")
   private String name;
   @Column(name="task-descriprion")
@@ -42,4 +40,4 @@ public class Task {
   @Column(name="tags")
   private List<String> tags;
 
-}
+}*/
