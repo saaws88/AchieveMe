@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.nekot.achieveme.services.UserDetailsServiceImpl;
+import com.nekot.achieveme.services.CustomUserDetailsService;
 
 
 @Configuration
@@ -25,7 +25,7 @@ public class WebSecurityConfig {
 
   @Bean
   public UserDetailsService userDetailsService() {
-    return new UserDetailsServiceImpl();
+    return new CustomUserDetailsService();
   }
 
   @Bean
@@ -39,8 +39,9 @@ public class WebSecurityConfig {
   @Bean
   protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
+          .csrf(csrf->csrf.disable())
           .authorizeHttpRequests((requests) -> requests            
-            .requestMatchers("/", "/main", "api/v1/**").permitAll()
+            .requestMatchers("/", "/main", "api/v1/**", "/signup").permitAll()
             .anyRequest().authenticated()
           )
           .formLogin(login->login
@@ -48,8 +49,7 @@ public class WebSecurityConfig {
             .defaultSuccessUrl("/home")
             .permitAll())
           .logout(logout -> logout
-              .permitAll()
-              .logoutSuccessUrl("/"));
+              .permitAll());
           
     return http.build();
   }
