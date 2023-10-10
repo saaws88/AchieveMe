@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.9</version>
+		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nekot</groupId>
@@ -29,9 +29,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		<!-- Testing !-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,18 +44,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency> 
-		<!-- Database -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
@@ -64,14 +52,24 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-    <!-- HTML-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
+		<!-- HTML-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
+		</dependency>
+		<dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+		<dependency>
+		<groupId>org.glassfish.jaxb</groupId>
+		  <artifactId>jaxb-runtime</artifactId>
+			<scope>provided</scope>
+		</dependency>
     <dependency>
-	    <groupId>org.thymeleaf.extras</groupId>
-	    <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.6.0</version>
     </dependency>
 	</dependencies>
 	

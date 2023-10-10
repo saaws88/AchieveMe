@@ -1,32 +1,20 @@
 <html>
-<body>
-<h1 th:text="#{label.form.title}">Sign Up</h1>
-<form action="/" th:object="${user}" method="POST" enctype="utf8">
-    <div>
-        <label th:text="#{label.user.username}">Username</label>
-        <input th:field="*{username}"/>
-        <p th:each="error: ${#fields.errors('username')}" 
-          th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.email}">Email</label>
-        <input type="email" th:field="*{email}"/>
-        <p th:each="error : ${#fields.errors('email')}" 
-          th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.password}">Password</label>
-        <input type="password" th:field="*{password}"/>
-      </div>
-      <div>
-        <label th:text="#{label.user.confirmPass}">Confirm</label>
-        <input type="password" th:field="*{matchingPassword}"/>
-        <p th:each="error : ${#fields.errors('password')}" 
-          th:text="${error}">Validation error</p>
-      </div>
-    <button type="submit" th:text="#{label.form.submit}">submit</button>
-</form>
-
-<a th:href="@{/login.html}" th:text="#{label.form.loginLink}">login</a>
-</body>
+  <body>
+    <h1>Sign Up</h1>
+    <form action="/signup" th:object="${user}" method="POST" enctype="utf8">
+        <div>
+            <p>Username <input th:field="*{username}"/></p>
+        </div>
+        <div>
+            <p>Email<input type="email" th:field="*{email}"/> </p>
+        </div>
+        <div>
+          <p>Password <input type="password" th:field="*{password}"/></p>
+        </div>
+        <div th:value="${matchingPassword}">
+          <p>Confirm <input type="password" th:field="*{matchingPassword}"/></p>
+        </div>
+        <button type="submit" th:text="Submit"></button>
+      </form>
+  </body>
 </html>
