@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class CustomUserDetails implements UserDetails {
 
 	private AchievemeUser user;

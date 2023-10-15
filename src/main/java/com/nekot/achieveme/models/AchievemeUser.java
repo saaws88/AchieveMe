@@ -22,7 +22,7 @@ public class AchievemeUser {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", nullable = false, unique = true)
   private long id;
-  @Column(name = "username", nullable = false)
+  @Column(name = "username", nullable = false, unique = true)
   private String username;
   private String password;
   @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

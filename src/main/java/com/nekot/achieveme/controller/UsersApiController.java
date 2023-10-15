@@ -22,7 +22,6 @@ public class UsersApiController {
 
   @Autowired
   private UserRepository repo;
-
   private BCryptPasswordEncoder encoder;
 
   @PostMapping(path="/add")

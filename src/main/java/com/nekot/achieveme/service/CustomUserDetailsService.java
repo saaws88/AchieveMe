@@ -1,4 +1,4 @@
-package com.nekot.achieveme.services;
+package com.nekot.achieveme.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,4 +25,5 @@ public class CustomUserDetailsService implements UserDetailsService {
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 		return new CustomUserDetails(user);
 	}
+  
 }
