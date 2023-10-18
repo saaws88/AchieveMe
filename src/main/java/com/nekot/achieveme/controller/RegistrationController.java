@@ -5,15 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.nekot.achieveme.exception.UserAlreadyExistsException;
 import com.nekot.achieveme.models.AchievemeUser;
 import com.nekot.achieveme.service.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -25,27 +27,24 @@ public class RegistrationController {
 
   @GetMapping("/signup")
   public String showRegistrationForm(Model model) {
-    AchievemeUser user = new AchievemeUser();
-    model.addAttribute("user", user);
+    model.addAttribute("user", new AchievemeUser());
     return "signup";
   }
 
   @PostMapping("/signup")
-  public String createUser(@ModelAttribute("user") @Valid AchievemeUser user, BindingResult BindingResult, String matchingPassword, Model model) {
+  public String signupUser(@Valid AchievemeUser user, BindingResult bindingResult, Model model) throws UserAlreadyExistsException {  
     
-    model.addAttribute("user", user);
-
-    if (!userService.createUser(user)) {
-      model.addAttribute("errorMessage", "Пользователь с именем " + user.getUsername()+ " уже существует");
-      return "signup";
-    } else if (!user.getPassword().equals(matchingPassword)) {
-      model.addAttribute("validationError", "Введенные пароли не совпадают");
-      return "signup";
+    if(bindingResult.hasErrors()) {
+      model.addAttribute("user", user);
+      return "/signup";
     }
-    
+
     userService.createUser(user);
+    
     return "redirect:/login";
+
   }
+  
 
 
 }

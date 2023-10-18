@@ -18,6 +18,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(exclude = "id")
 public class AchievemeUser {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", nullable = false, unique = true)

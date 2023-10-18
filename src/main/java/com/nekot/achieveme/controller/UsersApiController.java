@@ -29,13 +29,13 @@ public class UsersApiController {
   (@RequestParam String username,
   @RequestParam String email) {
     
-    AchievemeUser n = new AchievemeUser();
-    n.setUsername(username);
-    n.setEmail(email);
-    n.setPassword(encoder.encode("123"));
-    n.getRoles().add(Role.USER);
-    repo.save(n);
-    return ("User " + n.getUsername() + " saved");
+    AchievemeUser user = new AchievemeUser();
+    user.setUsername(username);
+    user.setEmail(email);
+    user.setPassword(encoder.encode("123"));
+    user.getRoles().add(Role.USER);
+    repo.save(user);
+    return ("User " + user.getUsername() + " saved");
   }
 
   @GetMapping(path="/all") 
